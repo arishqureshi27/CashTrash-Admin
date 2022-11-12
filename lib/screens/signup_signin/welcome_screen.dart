@@ -13,7 +13,7 @@ class WelcomeScreen extends StatelessWidget {
           height: MediaQuery.of(context).size.height,
           width: double.infinity,
           decoration: const BoxDecoration(
-              image: DecorationImage(image: AssetImage("assets/bg1.jpg"))),
+              image: DecorationImage(image: AssetImage("ct_bgAdmin.png"))),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -25,8 +25,8 @@ class WelcomeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 150),
               CustomizedButton(
-                buttonText: "Login",
-                buttonColor: Colors.green.shade900,
+                buttonText: "Login as Admin",
+                buttonColor: Color(0xFF09B1EC),
                 textColor: Colors.white,
                 onPressed: () {
                   Navigator.pushNamed(context, '/login-page');
@@ -35,7 +35,7 @@ class WelcomeScreen extends StatelessWidget {
               CustomizedButton(
                 buttonText: "Register",
                 buttonColor: Colors.white,
-                textColor: Colors.green.shade900,
+                textColor: Color(0xFF09B1EC),
                 onPressed: () {
                   Navigator.pushNamed(context, '/register-page');
                 },

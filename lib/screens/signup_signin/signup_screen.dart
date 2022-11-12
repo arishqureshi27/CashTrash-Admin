@@ -48,11 +48,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       }),
                 ),
               ),
-              const Padding(
+               Padding(
                 padding: EdgeInsets.all(10.0),
-                child: Text("Hello!  Register to get \nStarted",
+                child: Text("Register as Admin",
                     style: TextStyle(
-                      color: Colors.green,
+                      color: Color(0xFF09B1EC),
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
                     )),
@@ -84,7 +84,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               CustomizedButton(
                 buttonText: "Register",
-                buttonColor: Colors.green.shade900,
+                buttonColor: Color(0xFF09B1EC),
                 textColor: Colors.white,
                 onPressed: () async {
                   try {
@@ -99,7 +99,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                       Navigator.pop(context);
                                     },
                                     style: ElevatedButton.styleFrom(
-                                        backgroundColor: Colors.green[400]),
+                                        backgroundColor: Color(0xFF09B1EC)),
                                     child: const Text('OK'))
                               ],
                             ));
@@ -180,7 +180,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.green,
+                                    color: Color(0xFF09B1EC),
                                   ),
                                 ),
                               ),

@@ -19,15 +19,15 @@ class _DashboardState extends State<Dashboard> {
 
   List<Widget> dashboardScreens = [
     const HomeScreen(),
-    const PriceList(),
+    //const PriceList(),
     const PickUpRequest(),
     const PickUpHistory(),
   ];
 
   List<String> titles = [
-    'Home',
-    'Prices',
-    'Request Pickup',
+    'Pickup Requests',
+    //'Prices',
+    'Allow Locations',
     'History',
   ];
 
@@ -36,40 +36,38 @@ class _DashboardState extends State<Dashboard> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.green,
+        backgroundColor: Color(0xFF09B1EC),
         title: Text(titles[_currentIndex]),
       ),
-      drawer: MyDrawer(),
+      drawer: MyDrawer(
+        // child:
+      ),
       body: dashboardScreens.elementAt(_currentIndex),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Color(0xFF09B1EC),
         selectedFontSize: 16,
         iconSize: 26,
         selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.green[900],
+        unselectedItemColor: Color(0xFF003F59),
         currentIndex: _currentIndex,
         onTap: (index) => setState(() {
           _currentIndex = index;
         }),
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-            backgroundColor: Colors.green,
+            icon: Icon(Icons.list),
+            label: 'Pickup Requests',
+            //backgroundColor: Colors.green,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.currency_rupee),
-            label: 'Price',
-            backgroundColor: Colors.green,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.delivery_dining),
-            label: 'Request',
-            backgroundColor: Colors.green,
+            icon: Icon(Icons.pin_drop),
+            label: 'Locations',
+            //backgroundColor: Colors.green,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.history),
             label: 'History',
-            backgroundColor: Colors.green,
+            //backgroundColor: Colors.green,
           ),
         ],
       ),

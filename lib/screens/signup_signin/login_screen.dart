@@ -44,11 +44,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       }),
                 ),
               ),
-              const Padding(
+               Padding(
                 padding: EdgeInsets.all(10.0),
-                child: Text("Welcome Back! Glad \nto see you again",
+                child: Text("Login as Admin",
                     style: TextStyle(
-                      color: Colors.green,
+                      color: Color(0xFF09B1EC),
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
                     )),
@@ -86,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
               // Login Button
               CustomizedButton(
                 buttonText: "Login",
-                buttonColor: Colors.green[800],
+                buttonColor: Color(0xFF09B1EC),
                 textColor: Colors.white,
                 onPressed: () async {
                   //  The else part is not working in the video because we have
@@ -126,7 +126,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         Navigator.pop(context);
                                       },
                                       style: ElevatedButton.styleFrom(
-                                          backgroundColor: Colors.green[800]),
+                                          backgroundColor: Color(0xFF09B1EC)),
                                       child: const Text('OK'),
                                     ),
                                   )
@@ -185,7 +185,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 style: TextStyle(
                                   fontSize: 14.0,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.green,
+                                  color: Color(0xFF09B1EC),
                                 ),
                               ),
                             ),

@@ -6,9 +6,13 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Lottie.network(
-          'https://assets8.lottiefiles.com/packages/lf20_tja8xM0Y9R.json'),
-    );
+    return Scaffold(
+          body: ListView.builder(
+            itemBuilder: (context, index) {
+              return Card(child: Text('Pick Up ${index}'));
+            },
+            itemCount: 10,
+          ),
+        );
   }
 }
