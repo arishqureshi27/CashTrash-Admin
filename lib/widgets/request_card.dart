@@ -50,23 +50,32 @@ class RequestCard extends StatelessWidget {
                       ),
 
                       const SizedBox(
-                        height: 4,
+                        height: 8,
                       ),
 
                       Text(orderData['orderId']),
                       const SizedBox(
-                        height: 12,
+                        height: 8,
                       ),
 
                       // Date
                       const Text('Date of Request: ',
                           style: TextStyle(fontWeight: FontWeight.bold)),
                       const SizedBox(
-                        height: 4,
+                        height: 8,
                       ),
                       Text(orderData['date']),
                       const SizedBox(
-                        height: 12,
+                        height: 8,
+                      ),
+                      const Text('Time of Request: ',
+                          style: TextStyle(fontWeight: FontWeight.bold)),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      Text(orderData['time']),
+                      const SizedBox(
+                        height: 16,
                       ),
 
                       // Items Requested for Pickup
@@ -101,7 +110,7 @@ class RequestCard extends StatelessWidget {
                       Center(
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.green[600],
+                            backgroundColor: const Color(0xff35C2C1),
                           ),
                           onPressed: onPressed,
                           // onPressed: () {

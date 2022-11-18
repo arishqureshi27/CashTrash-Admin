@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class RequestHistoryCard extends StatefulWidget {
   final DocumentSnapshot<Object?> orderData;
-  
+
   const RequestHistoryCard({
     Key? key,
     required this.orderData,
@@ -29,89 +29,91 @@ class _RequestCardState extends State<RequestHistoryCard> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  content: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Center(
-                        child: Container(
-                          height: 160,
-                          width: 160,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16),
-                              color: Colors.blue),
-                        ),
-                      ),
-
-                      const SizedBox(
-                        height: 32,
-                      ),
-
-                      const Text(
-                        'OrderId:',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-
-                      const SizedBox(
-                        height: 4,
-                      ),
-
-                      Text(widget.orderData['orderId']),
-                      const SizedBox(
-                        height: 12,
-                      ),
-
-                      // Date
-                      const Text('Date of Request: ',
-                          style: TextStyle(fontWeight: FontWeight.bold)),
-                      const SizedBox(
-                        height: 4,
-                      ),
-                      Text(widget.orderData['date']),
-                      const SizedBox(
-                        height: 12,
-                      ),
-
-                      // Items Requested for Pickup
-                      const Text(
-                        'Items:',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      const SizedBox(
-                        height: 4,
-                      ),
-                      Center(
-                        child: Text(widget.orderData['order']
-                            .map((e) => e.toString())
-                            .toList()
-                            .join(', ')),
-                      ),
-                      const SizedBox(
-                        height: 12,
-                      ),
-                      const Text('Status: ',
-                          style: TextStyle(fontWeight: FontWeight.bold)),
-                      const SizedBox(
-                        height: 4,
-                      ),
-                      Text(widget.orderData['status']),
-                      const SizedBox(
-                        height: 16,
-                      ),
-                      const Spacer(
-                        flex: 1,
-                      ),
-                      Center(
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.green[600],
+                  content: SizedBox(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Center(
+                          child: Container(
+                            height: 160,
+                            width: 160,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(16),
+                                color: Colors.blue),
                           ),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          child: const Text('Accept'),
                         ),
-                      ),
-                    ],
+
+                        const SizedBox(
+                          height: 32,
+                        ),
+
+                        const Text(
+                          'OrderId:',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+
+                        const SizedBox(
+                          height: 4,
+                        ),
+
+                        Text(widget.orderData['orderId']),
+                        const SizedBox(
+                          height: 12,
+                        ),
+
+                        // Date
+                        const Text('Date of Request: ',
+                            style: TextStyle(fontWeight: FontWeight.bold)),
+                        const SizedBox(
+                          height: 4,
+                        ),
+                        Text(widget.orderData['date']),
+                        const SizedBox(
+                          height: 12,
+                        ),
+
+                        // Items Requested for Pickup
+                        const Text(
+                          'Items:',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(
+                          height: 4,
+                        ),
+                        Center(
+                          child: Text(widget.orderData['order']
+                              .map((e) => e.toString())
+                              .toList()
+                              .join(', ')),
+                        ),
+                        const SizedBox(
+                          height: 12,
+                        ),
+                        const Text('Status: ',
+                            style: TextStyle(fontWeight: FontWeight.bold)),
+                        const SizedBox(
+                          height: 4,
+                        ),
+                        Text(widget.orderData['status']),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        const Spacer(
+                          flex: 1,
+                        ),
+                        Center(
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xff35C2C1),
+                            ),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: const Text('Accept'),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 );
               });

@@ -16,8 +16,8 @@ class _DashboardState extends State<Dashboard> {
 
   List<Widget> dashboardScreens = [
     const RequestPage(),
-    const PincodeAdd(),
-    RequestHistory(),
+    const AddPincode(),
+    const RequestHistory(),
   ];
 
   List<String> titles = [
@@ -31,7 +31,7 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green,
+        backgroundColor: Color(0xff35C2C1),
         title: Text(titles[_currentIndex]),
       ),
       drawer: const MyDrawer(),
@@ -44,8 +44,8 @@ class _DashboardState extends State<Dashboard> {
         selectedFontSize: 16,
         iconSize: 24,
         selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.green[900],
-        backgroundColor: Colors.green,
+        unselectedItemColor: Colors.blueGrey,
+        backgroundColor: Color(0xff35C2C1),
         currentIndex: _currentIndex,
         onTap: (index) {
           setState(() {
@@ -57,19 +57,19 @@ class _DashboardState extends State<Dashboard> {
             icon: Icon(Icons.home),
             tooltip: 'Requests',
             label: 'Requests',
-            backgroundColor: Colors.green,
+            backgroundColor: Color(0xff35C2C1),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.currency_rupee),
             tooltip: 'Pincodes',
             label: 'Pincodes',
-            backgroundColor: Colors.green,
+            backgroundColor: Color(0xff35C2C1),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.history),
             tooltip: 'History',
             label: 'History',
-            backgroundColor: Colors.green,
+            backgroundColor: Color(0xff35C2C1),
           ),
         ],
       ),
