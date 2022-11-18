@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-
 import './history.dart';
-import './pickup_req.dart';
-import './homescreen.dart';
-import './price_list.dart';
-
+import 'pincode_add.dart';
+import 'requests_page.dart';
 import '../../widgets/drawer.dart';
 
 class Dashboard extends StatefulWidget {
@@ -18,59 +15,86 @@ class _DashboardState extends State<Dashboard> {
   int _currentIndex = 0;
 
   List<Widget> dashboardScreens = [
-    const HomeScreen(),
-    //const PriceList(),
-    const PickUpRequest(),
-    const PickUpHistory(),
+    const RequestPage(),
+    const PincodeAdd(),
+    RequestHistory(),
   ];
 
   List<String> titles = [
-    'Pickup Requests',
-    //'Prices',
-    'Allow Locations',
+    'Home',
+    'Prices',
+    'Request Pickup',
     'History',
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color(0xFF09B1EC),
+        backgroundColor: Colors.green,
         title: Text(titles[_currentIndex]),
       ),
-      drawer: MyDrawer(
-        // child:
-      ),
-      body: dashboardScreens.elementAt(_currentIndex),
+      drawer: const MyDrawer(),
+      body: dashboardScreens[_currentIndex],
+      // body: Check(
+      //   currentindex: _currentIndex,
+      //   dashboardscreens: dashboardScreens,
+      // ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Color(0xFF09B1EC),
         selectedFontSize: 16,
-        iconSize: 26,
+        iconSize: 24,
         selectedItemColor: Colors.white,
-        unselectedItemColor: Color(0xFF003F59),
+        unselectedItemColor: Colors.green[900],
+        backgroundColor: Colors.green,
         currentIndex: _currentIndex,
-        onTap: (index) => setState(() {
-          _currentIndex = index;
-        }),
-        items: [
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.list),
-            label: 'Pickup Requests',
-            //backgroundColor: Colors.green,
+            icon: Icon(Icons.home),
+            tooltip: 'Requests',
+            label: 'Requests',
+            backgroundColor: Colors.green,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.pin_drop),
-            label: 'Locations',
-            //backgroundColor: Colors.green,
+            icon: Icon(Icons.currency_rupee),
+            tooltip: 'Pincodes',
+            label: 'Pincodes',
+            backgroundColor: Colors.green,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.history),
+            tooltip: 'History',
             label: 'History',
-            //backgroundColor: Colors.green,
+            backgroundColor: Colors.green,
           ),
         ],
       ),
     );
   }
 }
+
+// class Check extends StatefulWidget {
+//   int currentindex;
+//   List<Widget> dashboardscreens;
+
+//   Check(
+//       {required this.currentindex, required this.dashboardscreens, super.key});
+
+//   @override
+//   State<Check> createState() => _CheckState();
+// }
+
+// class _CheckState extends State<Check> {
+//   @override
+//   Widget build(BuildContext context) {
+//     if (widget.currentindex != 2) {
+//       return PickUpRequest();
+//     } else {
+//       return widget.dashboardscreens.elementAt(widget.currentindex);
+//     }
+//   }
+// }

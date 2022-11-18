@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class PickUpRequest extends StatelessWidget {
-  const PickUpRequest({super.key});
+class PincodeAdd extends StatelessWidget {
+  const PincodeAdd({super.key});
 
   @override
   Widget build(BuildContext context) {
