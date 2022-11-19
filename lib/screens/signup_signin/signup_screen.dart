@@ -55,7 +55,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 padding: EdgeInsets.all(10.0),
                 child: Text("Hello Admin!\nRegister to get Started",
                     style: TextStyle(
-                      color: Color(0xff35C2C1),
+                      color: Color(0xFF09B1EC),
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
                     )),
@@ -91,7 +91,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     )
                   : CustomizedButton(
                       buttonText: "Register",
-                      buttonColor: const Color(0xff35C2C1),
+                      buttonColor: const Color(0xFF09B1EC),
                       textColor: Colors.white,
                       onPressed: () {
                         signupAuthProvider.signupValidation(
@@ -121,7 +121,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     },
                     child: const Text(" Login Now",
                         style: TextStyle(
-                          color: Color(0xff35C2C1),
+                          color: Color(0xFF09B1EC),
                           fontSize: 15,
                         )),
                   ),

@@ -31,7 +31,7 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xff35C2C1),
+        backgroundColor: const Color(0xFF09B1EC),
         title: Text(titles[_currentIndex]),
       ),
       drawer: const MyDrawer(),
@@ -40,8 +40,8 @@ class _DashboardState extends State<Dashboard> {
         selectedFontSize: 16,
         iconSize: 24,
         selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.blueGrey,
-        backgroundColor: const Color(0xff35C2C1),
+        unselectedItemColor: Color(0xff1E232C),
+        backgroundColor: const Color(0xFF09B1EC),
         currentIndex: _currentIndex,
         onTap: (index) {
           setState(() {
@@ -53,19 +53,19 @@ class _DashboardState extends State<Dashboard> {
             icon: Icon(Icons.home),
             tooltip: 'Requests',
             label: 'Requests',
-            backgroundColor: Color(0xff35C2C1),
+            backgroundColor: Color(0xFF09B1EC),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.location_on),
             tooltip: 'Pincodes',
             label: 'Pincodes',
-            backgroundColor: Color(0xff35C2C1),
+            backgroundColor: Color(0xFF09B1EC),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.history),
             tooltip: 'History',
             label: 'History',
-            backgroundColor: Color(0xff35C2C1),
+            backgroundColor: Color(0xFF09B1EC),
           ),
         ],
       ),

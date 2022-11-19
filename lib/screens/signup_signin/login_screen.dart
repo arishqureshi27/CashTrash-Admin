@@ -39,7 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 50,
                   width: 50,
                   decoration: BoxDecoration(
-                    border: Border.all(color: Colors.green.shade900, width: 1),
+                    border: Border.all(color: Color(0xff1E232C), width: 1),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: IconButton(
@@ -126,7 +126,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                     child: const Text("Register Now",
                         style: TextStyle(
-                          color: Color(0xff35C2C1),
+                          color: Color(0xFF09B1EC),
                           fontSize: 15,
                         )),
                   ),
