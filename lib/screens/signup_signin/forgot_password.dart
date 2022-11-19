@@ -11,7 +11,6 @@ class ForgotPassword extends StatefulWidget {
 }
 
 class _ForgotPasswordState extends State<ForgotPassword> {
-  //final TextEditingController _emailController = TextEditingController();
   late String _email;
   final auth = FirebaseAuth.instance;
   @override
@@ -55,23 +54,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   style: TextStyle(
                     color: Color(0xff8391A1),
                     fontSize: 20,
-                    // fontWeight: FontWeight.bold,
                   )),
             ),
-            // CustomizedTextfield(
-            //   myController: _emailController,
-            //   hintText: "Enter your Email",
-            //   isPassword: false,
-            // ),
-            // CustomizedButton(
-            //   buttonText: "Send Code",
-            //   buttonColor: Colors.black,
-            //   textColor: Colors.white,
-            //   onPressed: () {
-            //     auth.sendPasswordResetEmail(email: _emailController);
-            //   },
-            // ),
-
             TextField(
               keyboardType: TextInputType.emailAddress,
               decoration: const InputDecoration(
@@ -87,7 +71,6 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 });
               },
             ),
-
             CustomizedButton(
               buttonColor: Colors.black,
               buttonText: 'Send Code',
@@ -97,7 +80,6 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 Navigator.of(context).pop();
               },
             ),
-
             const Spacer(
               flex: 1,
             ),

@@ -60,7 +60,7 @@ class _CheckPincodeState extends State<AddPincode> {
       actions: [
         ElevatedButton(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Color(0xff35C2C1),
+            backgroundColor: const Color(0xff35C2C1),
           ),
           onPressed: () {
             if (_controller.text.isEmpty) {

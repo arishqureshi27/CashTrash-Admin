@@ -1,16 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_auth101/firebase_options.dart';
-import 'package:firebase_auth101/screens/dashboard_screens/dashboard.dart';
-import 'package:firebase_auth101/screens/signup_signin/signup_screen.dart';
-import 'package:firebase_auth101/screens/signup_signin/welcome_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-import 'provider/login_auth_provider.dart';
-import 'provider/signup_auth_provider.dart';
-import 'screens/signup_signin/login_screen.dart';
+import './provider/login_auth_provider.dart';
+import './provider/signup_auth_provider.dart';
+import './screens/signup_signin/login_screen.dart';
+import './firebase_options.dart';
+import './screens/dashboard_screens/dashboard.dart';
+import './screens/signup_signin/signup_screen.dart';
+import './screens/signup_signin/welcome_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

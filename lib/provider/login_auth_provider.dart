@@ -56,6 +56,7 @@ class LoginAuthProvider with ChangeNotifier {
             context,
             '/dashboard',
           );
+          return;
         });
       } on FirebaseAuthException catch (e) {
         loading = false;

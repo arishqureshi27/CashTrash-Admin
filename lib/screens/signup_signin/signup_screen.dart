@@ -1,7 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_auth101/services/firebase_auth_service.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import '../../provider/signup_auth_provider.dart';
@@ -106,153 +103,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           context: context,
                         );
                       },
-
-                      // ORIGINAL
-                      // onPressed: () async {
-                      //   try {
-                      //     await FirebaseAuthService()
-                      //         .signup(_emailController.text.trim(),
-                      //             _passwordController.text.trim())
-                      //         .then((value) => AlertDialog(
-                      //               title: const Text('Registered Successfully'),
-                      //               actions: [
-                      //                 ElevatedButton(
-                      //                     onPressed: () {
-                      //                       Navigator.pop(context);
-                      //                     },
-                      //                     style: ElevatedButton.styleFrom(
-                      //                         backgroundColor: Colors.green[400]),
-                      //                     child: const Text('OK'))
-                      //               ],
-                      //             ));
-
-                      //     if (!mounted) return;
-
-                      //     Navigator.push(
-                      //         context,
-                      //         MaterialPageRoute(
-                      //             builder: (context) => const LoginScreen()));
-                      //   } on FirebaseException catch (e) {
-                      //     debugPrint(e.message);
-                      //   }
-
-                      //   // Navigator.push(context,
-                      //   //     MaterialPageRoute(builder: (_) => const LoginScreen()));
-                      // },
                     ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      height: 1,
-                      width: MediaQuery.of(context).size.height * 0.15,
-                      color: Colors.grey,
-                    ),
-                    const Text("  OR  "),
-                    Container(
-                      height: 1,
-                      width: MediaQuery.of(context).size.height * 0.16,
-                      color: Colors.grey,
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    // Container(
-                    //     height: 50,
-                    //     width: 100,
-                    //     decoration: BoxDecoration(
-                    //       border: Border.all(color: Colors.black, width: 1),
-                    //       borderRadius: BorderRadius.circular(10),
-                    //     ),
-                    //     child: IconButton(
-                    //       icon: const Icon(
-                    //         FontAwesomeIcons.facebookF,
-                    //         color: Colors.blue,
-                    //       ),
-                    //       onPressed: () {},
-                    //     )),
-                    Container(
-                      height: 50,
-                      //width: 60,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black, width: 1),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: OutlinedButton(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Image.asset(
-                              'assets/google.png',
-                              width: 50,
-                              height: 50,
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.all(10.0),
-                              child: Center(
-                                child: Text(
-                                  'CONTINUE WITH GOOGLE',
-                                  style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Color(0xff35C2C1),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        onPressed: () async {
-                          try {
-                            await FirebaseAuthService().logininwithgoogle();
-
-                            if (FirebaseAuth.instance.currentUser != null) {
-                              if (!mounted) return;
-
-                              Navigator.pushNamed(
-                                context,
-                                '/dashboard',
-                              );
-                            } else {
-                              throw Exception("Error");
-                            }
-                          } on PlatformException catch (_) {
-                            print("Exception");
-                            rethrow;
-                          }
-                        },
-                      ),
-                    ),
-                    // Container(
-                    //     height: 50,
-                    //     width: 100,
-                    //     decoration: BoxDecoration(
-                    //       border: Border.all(color: Colors.black, width: 1),
-                    //       borderRadius: BorderRadius.circular(10),
-                    //     ),
-                    //     child: IconButton(
-                    //       icon: const Icon(
-                    //         FontAwesomeIcons.apple,
-                    //         // color: Colors.blue,
-                    //       ),
-                    //       onPressed: () {},
-                    //     ))
-                  ],
-                ),
-              ),
               const SizedBox(
-                height: 30,
+                height: 40,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   const Text("Already have an account?",
                       style: TextStyle(
@@ -270,9 +126,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         )),
                   ),
                 ],
-              ),
-              const SizedBox(
-                height: 20,
               ),
             ],
           ),

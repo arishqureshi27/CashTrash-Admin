@@ -35,8 +35,13 @@ class RequestCard extends StatelessWidget {
                           height: 160,
                           width: 160,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16),
-                              color: Colors.blue),
+                            image: DecorationImage(
+                                image: NetworkImage(
+                                  orderData['image'],
+                                ),
+                                fit: BoxFit.fill),
+                            borderRadius: BorderRadius.circular(16),
+                          ),
                         ),
                       ),
 
@@ -148,8 +153,13 @@ class RequestCard extends StatelessWidget {
                 height: 100,
                 width: 100,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
-                    color: Colors.blue),
+                  image: DecorationImage(
+                      image: NetworkImage(
+                        orderData['image'],
+                      ),
+                      fit: BoxFit.fill),
+                  borderRadius: BorderRadius.circular(16),
+                ),
               ),
               const SizedBox(
                 width: 20,

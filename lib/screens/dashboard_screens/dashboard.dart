@@ -31,21 +31,17 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xff35C2C1),
+        backgroundColor: const Color(0xff35C2C1),
         title: Text(titles[_currentIndex]),
       ),
       drawer: const MyDrawer(),
       body: dashboardScreens[_currentIndex],
-      // body: Check(
-      //   currentindex: _currentIndex,
-      //   dashboardscreens: dashboardScreens,
-      // ),
       bottomNavigationBar: BottomNavigationBar(
         selectedFontSize: 16,
         iconSize: 24,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.blueGrey,
-        backgroundColor: Color(0xff35C2C1),
+        backgroundColor: const Color(0xff35C2C1),
         currentIndex: _currentIndex,
         onTap: (index) {
           setState(() {
@@ -60,7 +56,7 @@ class _DashboardState extends State<Dashboard> {
             backgroundColor: Color(0xff35C2C1),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.currency_rupee),
+            icon: Icon(Icons.location_on),
             tooltip: 'Pincodes',
             label: 'Pincodes',
             backgroundColor: Color(0xff35C2C1),
@@ -76,25 +72,3 @@ class _DashboardState extends State<Dashboard> {
     );
   }
 }
-
-// class Check extends StatefulWidget {
-//   int currentindex;
-//   List<Widget> dashboardscreens;
-
-//   Check(
-//       {required this.currentindex, required this.dashboardscreens, super.key});
-
-//   @override
-//   State<Check> createState() => _CheckState();
-// }
-
-// class _CheckState extends State<Check> {
-//   @override
-//   Widget build(BuildContext context) {
-//     if (widget.currentindex != 2) {
-//       return PickUpRequest();
-//     } else {
-//       return widget.dashboardscreens.elementAt(widget.currentindex);
-//     }
-//   }
-// }

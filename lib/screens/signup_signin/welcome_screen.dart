@@ -20,13 +20,6 @@ class WelcomeScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              const SizedBox(
-                height: 130,
-                width: 180,
-                // child: Image(
-                //     image: AssetImage("assets/logo.png"), fit: BoxFit.cover),
-              ),
-              const SizedBox(height: 150),
               CustomizedButton(
                 buttonText: "Login as Admin",
                 buttonColor: const Color(0xFF09B1EC),
@@ -43,15 +36,6 @@ class WelcomeScreen extends StatelessWidget {
                   Navigator.pushNamed(context, '/register-page');
                 },
               ),
-              const SizedBox(height: 40),
-              //  const SizedBox(height: 20),
-              // const Padding(
-              //    padding:  EdgeInsets.all(10.0),
-              //    child: Text(
-              //      "Continue as a Guest",
-              //      style: TextStyle(color: Color(0xff35C2C1), fontSize: 25),
-              //    ),
-              //  )
             ],
           ),
         ),
