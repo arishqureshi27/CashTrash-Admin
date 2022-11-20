@@ -5,12 +5,13 @@ import 'package:flutter/material.dart';
 class RequestCard extends StatelessWidget {
   final DocumentSnapshot<Object?> orderData;
   final VoidCallback onPressed;
-  final String buttonText;
+  final VoidCallback onPressed1;
+
   const RequestCard({
     Key? key,
     required this.orderData,
     required this.onPressed,
-    required this.buttonText,
+    required this.onPressed1,
   }) : super(key: key);
 
   @override
@@ -24,127 +25,127 @@ class RequestCard extends StatelessWidget {
               context: context,
               builder: (context) {
                 return AlertDialog(
+                  actionsAlignment: MainAxisAlignment.spaceAround,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  content: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Center(
-                        child: Container(
-                          height: 160,
-                          width: 160,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: NetworkImage(
-                                  orderData['image'],
-                                ),
-                                fit: BoxFit.fill),
-                            borderRadius: BorderRadius.circular(16),
+                  actions: [
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xff35C2C1),
+                      ),
+                      onPressed: onPressed,
+                      child: const Text('Accept'),
+                    ),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xff35C2C1),
+                      ),
+                      onPressed: onPressed1,
+                      child: const Text('Reject'),
+                    ),
+                  ],
+                  content: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Center(
+                          child: Container(
+                            height: 160,
+                            width: 160,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: NetworkImage(
+                                    orderData['image'],
+                                  ),
+                                  fit: BoxFit.fill),
+                              borderRadius: BorderRadius.circular(16),
+                            ),
                           ),
                         ),
-                      ),
 
-                      const SizedBox(
-                        height: 32,
-                      ),
-
-                      const Text(
-                        'OrderId:',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-
-                      const SizedBox(
-                        height: 8,
-                      ),
-
-                      Text(orderData['orderId']),
-                      const SizedBox(
-                        height: 8,
-                      ),
-
-                      // Date
-                      const Text('Date of Request: ',
-                          style: TextStyle(fontWeight: FontWeight.bold)),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      Text(orderData['date']),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      const Text('Time of Request: ',
-                          style: TextStyle(fontWeight: FontWeight.bold)),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      Text(orderData['time']),
-                      const SizedBox(
-                        height: 16,
-                      ),
-
-                      // Items Requested for Pickup
-                      const Text(
-                        'Items:',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      const SizedBox(
-                        height: 4,
-                      ),
-                      Center(
-                        child: Text(orderData['order']
-                            .map((e) => e.toString())
-                            .toList()
-                            .join(', ')),
-                      ),
-                      const SizedBox(
-                        height: 12,
-                      ),
-                      const Text('Status: ',
-                          style: TextStyle(fontWeight: FontWeight.bold)),
-                      const SizedBox(
-                        height: 4,
-                      ),
-                      Text(orderData['status']),
-                      const SizedBox(
-                        height: 16,
-                      ),
-                      const Spacer(
-                        flex: 1,
-                      ),
-                      Center(
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xff35C2C1),
-                          ),
-                          onPressed: onPressed,
-                          // onPressed: () {
-                          //   Map<String, String> dat = {'status': 'accepted'};
-                          //   setState(() {});
-                          //   FirebaseFirestore.instance
-                          //       .collection('order')
-                          //       .doc(widget.orderData['orderId'])
-                          //       .update(dat);
-                          //   FirebaseFirestore.instance
-                          //       .collection('users')
-                          //       .doc(widget.orderData['uid'])
-                          //       .collection('orders')
-                          //       .doc(widget.orderData['orderId'])
-                          //       .update(dat);
-
-                          //   Navigator.pop(context);
-                          // },
-                          child: Text(buttonText),
+                        const SizedBox(
+                          height: 32,
                         ),
-                      ),
-                    ],
+
+                        const Text(
+                          'OrderId:',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+
+                        const SizedBox(
+                          height: 8,
+                        ),
+
+                        Text(orderData['orderId']),
+                        const SizedBox(
+                          height: 8,
+                        ),
+
+                        // Date
+                        const Text('Date of Request: ',
+                            style: TextStyle(fontWeight: FontWeight.bold)),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        Text(orderData['date']),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        const Text('Pickup Date: ',
+                            style: TextStyle(fontWeight: FontWeight.bold)),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        Text(orderData['pickupDate']),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        const Text('Time of Request: ',
+                            style: TextStyle(fontWeight: FontWeight.bold)),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        Text(orderData['time']),
+                        const SizedBox(
+                          height: 16,
+                        ),
+
+                        // Items Requested for Pickup
+                        const Text(
+                          'Items:',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(
+                          height: 4,
+                        ),
+                        Center(
+                          child: Text(orderData['order']
+                              .map((e) => e.toString())
+                              .toList()
+                              .join(', ')),
+                        ),
+                        const SizedBox(
+                          height: 12,
+                        ),
+                        const Text('Status: ',
+                            style: TextStyle(fontWeight: FontWeight.bold)),
+                        const SizedBox(
+                          height: 4,
+                        ),
+                        Text(orderData['status']),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                      ],
+                    ),
                   ),
                 );
               });
         },
         child: Container(
           padding: const EdgeInsets.all(8),
-          height: 120,
+          height: 140,
           width: MediaQuery.of(context).size.width,
           child: Row(
             children: [
@@ -175,14 +176,15 @@ class RequestCard extends StatelessWidget {
                     const SizedBox(
                       height: 8,
                     ),
+                    Text('Pickup Date: ${orderData['pickupDate']}'),
+                    const SizedBox(
+                      height: 16,
+                    ),
                     Text('Item count: ${orderData['order'].length}'),
                     const SizedBox(
                       height: 16,
                     ),
                     Text('Status: ${orderData['status']}'),
-                    // const SizedBox(
-                    //   height: 16,
-                    // ),
                   ],
                 ),
               )

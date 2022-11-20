@@ -26,9 +26,21 @@ class _RequestCardState extends State<RequestHistoryCard> {
               context: context,
               builder: (context) {
                 return AlertDialog(
+                  actionsAlignment: MainAxisAlignment.spaceAround,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16),
                   ),
+                  actions: [
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xff35C2C1),
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Text('OK'),
+                    ),
+                  ],
                   content: SizedBox(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,7 +88,15 @@ class _RequestCardState extends State<RequestHistoryCard> {
                         const SizedBox(
                           height: 12,
                         ),
-
+                        const Text('Pickup Date: ',
+                            style: TextStyle(fontWeight: FontWeight.bold)),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        Text(widget.orderData['pickupDate']),
+                        const SizedBox(
+                          height: 8,
+                        ),
                         // Items Requested for Pickup
                         const Text(
                           'Items:',
@@ -103,20 +123,6 @@ class _RequestCardState extends State<RequestHistoryCard> {
                         const SizedBox(
                           height: 16,
                         ),
-                        const Spacer(
-                          flex: 1,
-                        ),
-                        Center(
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xff35C2C1),
-                            ),
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            child: const Text('Accept'),
-                          ),
-                        ),
                       ],
                     ),
                   ),
@@ -125,7 +131,7 @@ class _RequestCardState extends State<RequestHistoryCard> {
         },
         child: Container(
           padding: const EdgeInsets.all(8),
-          height: 120,
+          height: 140,
           width: MediaQuery.of(context).size.width,
           child: Row(
             children: [
@@ -156,14 +162,15 @@ class _RequestCardState extends State<RequestHistoryCard> {
                     const SizedBox(
                       height: 8,
                     ),
+                    Text('Pickup Date: ${widget.orderData['pickupDate']}'),
+                    const SizedBox(
+                      height: 16,
+                    ),
                     Text('Item count: ${widget.orderData['order'].length}'),
                     const SizedBox(
                       height: 16,
                     ),
                     Text('Status: ${widget.orderData['status']}'),
-                    // const SizedBox(
-                    //   height: 16,
-                    // ),
                   ],
                 ),
               )

@@ -42,10 +42,26 @@ class _RequestPageState extends State<RequestPage> {
                 Navigator.pop(context);
               }
 
+              void onPressed1() {
+                Map<String, String> dat = {'status': 'rejected'};
+                setState(() {});
+                FirebaseFirestore.instance
+                    .collection('order')
+                    .doc(orderData['orderId'])
+                    .update(dat);
+                FirebaseFirestore.instance
+                    .collection('users')
+                    .doc(orderData['uid'])
+                    .collection('orders')
+                    .doc(orderData['orderId'])
+                    .update(dat);
+                Navigator.pop(context);
+              }
+
               return RequestCard(
                 orderData: orderData,
                 onPressed: onPressed,
-                buttonText: 'Accept',
+                onPressed1: onPressed1,
               );
             },
           );
