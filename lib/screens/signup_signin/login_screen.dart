@@ -61,6 +61,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       fontWeight: FontWeight.bold,
                     )),
               ),
+              const SizedBox(
+                height: 20,
+              ),
               CustomizedTextfield(
                 myController: _emailController,
                 hintText: "Enter your Email",
@@ -129,6 +132,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           color: Color(0xFF09B1EC),
                           fontSize: 15,
                         )),
+                  ),
+                  const SizedBox(
+                    height: 20,
                   ),
                 ],
               )

@@ -60,6 +60,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       fontWeight: FontWeight.bold,
                     )),
               ),
+              const SizedBox(
+                height: 20,
+              ),
               CustomizedTextfield(
                 myController: _usernameController,
                 hintText: "Name",
@@ -126,6 +129,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         )),
                   ),
                 ],
+              ),
+              const SizedBox(
+                height: 40,
               ),
             ],
           ),

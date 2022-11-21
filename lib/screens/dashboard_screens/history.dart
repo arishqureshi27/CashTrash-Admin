@@ -13,7 +13,7 @@ class RequestHistory extends StatelessWidget {
         body: StreamBuilder(
       stream: FirebaseFirestore.instance
           .collection('order')
-          .where('status', isEqualTo: 'accepted')
+          .where('status', isNotEqualTo: 'pending')
           .snapshots(),
       builder: (context, AsyncSnapshot snapshot) {
         return snapshot.hasData
