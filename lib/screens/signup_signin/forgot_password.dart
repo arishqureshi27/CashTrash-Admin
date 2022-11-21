@@ -97,7 +97,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   },
                   child: const Text("  Login",
                       style: TextStyle(
-                        color: Color(0xff35C2C1),
+                        color: Color(0xFF09B1EC),
                         fontSize: 15,
                       )),
                 ),
