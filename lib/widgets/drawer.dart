@@ -22,7 +22,7 @@ class _MyDrawerState extends State<MyDrawer> {
 
   getData() async {
     var userSnap = await FirebaseFirestore.instance
-        .collection('users')
+        .collection('admins')
         .doc(FirebaseAuth.instance.currentUser!.uid)
         .get();
 
