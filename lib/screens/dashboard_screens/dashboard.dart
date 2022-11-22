@@ -21,9 +21,9 @@ class _DashboardState extends State<Dashboard> {
   ];
 
   List<String> titles = [
-    'Home',
-    'Prices',
-    'Request Pickup',
+    'Pickup Requests',
+    'Add Locations',
+    'History',
     'History',
   ];
 
