@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth101/widgets/rejection_reason.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/request_card.dart';
@@ -27,7 +28,7 @@ class _RequestPageState extends State<RequestPage> {
             itemBuilder: (context, index) {
               DocumentSnapshot orderData = snapshot.data!.docs[index];
               void onPressed() {
-                Map<String, String> dat = {'status': 'accepted'};
+                Map<String, String> dat = {'status': 'ongoing'};
                 setState(() {});
                 FirebaseFirestore.instance
                     .collection('order')
@@ -44,7 +45,7 @@ class _RequestPageState extends State<RequestPage> {
 
               void onPressed1() {
                 Map<String, String> dat = {'status': 'rejected'};
-                setState(() {});
+
                 FirebaseFirestore.instance
                     .collection('order')
                     .doc(orderData['orderId'])
@@ -55,19 +56,55 @@ class _RequestPageState extends State<RequestPage> {
                     .collection('orders')
                     .doc(orderData['orderId'])
                     .update(dat);
+                setState(() {});
                 Navigator.pop(context);
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        content: RejectionReason(),
+                        actionsAlignment: MainAxisAlignment.center,
+                        actions: [
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xff35C2C1),
+                            ),
+                            onPressed: () {
+                              Map<String, String> dat = {
+                                'reasonRejection': selectedReason!
+                              };
+                              FirebaseFirestore.instance
+                                  .collection('order')
+                                  .doc(orderData['orderId'])
+                                  .update(dat);
+                              FirebaseFirestore.instance
+                                  .collection('users')
+                                  .doc(orderData['uid'])
+                                  .collection('orders')
+                                  .doc(orderData['orderId'])
+                                  .update(dat);
+                              Navigator.pop(context);
+                            },
+                            child: const Text('Select Reason'),
+                          ),
+                        ],
+                      );
+                    });
               }
 
               return RequestCard(
                 orderData: orderData,
                 onPressed: onPressed,
+                text: 'Accept',
+                secondButton: true,
                 onPressed1: onPressed1,
+                text1: 'Reject',
               );
             },
           );
         } else if (snapshot.hasData) {
           return const Center(
-            child: Text('Thats All Folks'),
+            child: Text('No Pending Requests'),
           );
         } else {
           return const Center(child: CircularProgressIndicator());

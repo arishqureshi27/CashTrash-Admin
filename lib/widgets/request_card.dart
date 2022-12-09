@@ -5,13 +5,19 @@ import 'package:flutter/material.dart';
 class RequestCard extends StatelessWidget {
   final DocumentSnapshot<Object?> orderData;
   final VoidCallback onPressed;
+  final String text;
   final VoidCallback onPressed1;
+  final String text1;
+  final bool secondButton;
 
   const RequestCard({
     Key? key,
     required this.orderData,
     required this.onPressed,
+    required this.text,
     required this.onPressed1,
+    required this.text1,
+    required this.secondButton,
   }) : super(key: key);
 
   @override
@@ -25,7 +31,9 @@ class RequestCard extends StatelessWidget {
               context: context,
               builder: (context) {
                 return AlertDialog(
-                  actionsAlignment: MainAxisAlignment.spaceAround,
+                  actionsAlignment: secondButton
+                      ? MainAxisAlignment.spaceAround
+                      : MainAxisAlignment.center,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16),
                   ),
@@ -35,15 +43,17 @@ class RequestCard extends StatelessWidget {
                         backgroundColor: const Color(0xff35C2C1),
                       ),
                       onPressed: onPressed,
-                      child: const Text('Accept'),
+                      child: Text(text),
                     ),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xff35C2C1),
-                      ),
-                      onPressed: onPressed1,
-                      child: const Text('Reject'),
-                    ),
+                    secondButton
+                        ? ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xff35C2C1),
+                            ),
+                            onPressed: onPressed1,
+                            child: Text(text1),
+                          )
+                        : const SizedBox(),
                   ],
                   content: SingleChildScrollView(
                     child: Column(
@@ -92,6 +102,15 @@ class RequestCard extends StatelessWidget {
                         const SizedBox(
                           height: 8,
                         ),
+                        const Text('Time of Request: ',
+                            style: TextStyle(fontWeight: FontWeight.bold)),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        Text(orderData['time']),
+                        const SizedBox(
+                          height: 8,
+                        ),
                         const Text('Pickup Date: ',
                             style: TextStyle(fontWeight: FontWeight.bold)),
                         const SizedBox(
@@ -101,12 +120,13 @@ class RequestCard extends StatelessWidget {
                         const SizedBox(
                           height: 8,
                         ),
-                        const Text('Time of Request: ',
+                        const Text('Time Slot: ',
                             style: TextStyle(fontWeight: FontWeight.bold)),
                         const SizedBox(
                           height: 8,
                         ),
-                        Text(orderData['time']),
+                        Text(orderData['timeSlot']),
+
                         const SizedBox(
                           height: 16,
                         ),

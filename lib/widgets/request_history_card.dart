@@ -42,88 +42,99 @@ class _RequestCardState extends State<RequestHistoryCard> {
                     ),
                   ],
                   content: SizedBox(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Center(
-                          child: Container(
-                            height: 160,
-                            width: 160,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: NetworkImage(
-                                    widget.orderData['image'],
-                                  ),
-                                  fit: BoxFit.fill),
-                              borderRadius: BorderRadius.circular(16),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Center(
+                            child: Container(
+                              height: 160,
+                              width: 160,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                      widget.orderData['image'],
+                                    ),
+                                    fit: BoxFit.fill),
+                                borderRadius: BorderRadius.circular(16),
+                              ),
                             ),
                           ),
-                        ),
 
-                        const SizedBox(
-                          height: 32,
-                        ),
+                          const SizedBox(
+                            height: 32,
+                          ),
 
-                        const Text(
-                          'OrderId:',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
+                          const Text(
+                            'OrderId:',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
 
-                        const SizedBox(
-                          height: 4,
-                        ),
+                          const SizedBox(
+                            height: 4,
+                          ),
 
-                        Text(widget.orderData['orderId']),
-                        const SizedBox(
-                          height: 12,
-                        ),
+                          Text(widget.orderData['orderId']),
+                          const SizedBox(
+                            height: 12,
+                          ),
 
-                        // Date
-                        const Text('Date of Request: ',
-                            style: TextStyle(fontWeight: FontWeight.bold)),
-                        const SizedBox(
-                          height: 4,
-                        ),
-                        Text(widget.orderData['date']),
-                        const SizedBox(
-                          height: 12,
-                        ),
-                        const Text('Pickup Date: ',
-                            style: TextStyle(fontWeight: FontWeight.bold)),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        Text(widget.orderData['pickupDate']),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        // Items Requested for Pickup
-                        const Text(
-                          'Items:',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        const SizedBox(
-                          height: 4,
-                        ),
-                        Center(
-                          child: Text(widget.orderData['order']
-                              .map((e) => e.toString())
-                              .toList()
-                              .join(', ')),
-                        ),
-                        const SizedBox(
-                          height: 12,
-                        ),
-                        const Text('Status: ',
-                            style: TextStyle(fontWeight: FontWeight.bold)),
-                        const SizedBox(
-                          height: 4,
-                        ),
-                        Text(widget.orderData['status']),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                      ],
+                          // Date
+                          const Text('Date of Request: ',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          const SizedBox(
+                            height: 4,
+                          ),
+                          Text(widget.orderData['date']),
+                          const SizedBox(
+                            height: 12,
+                          ),
+                          const Text('Pickup Date: ',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          const SizedBox(
+                            height: 8,
+                          ),
+                          Text(widget.orderData['pickupDate']),
+                          const SizedBox(
+                            height: 12,
+                          ),
+                          const Text('Time Slot: ',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          const SizedBox(
+                            height: 8,
+                          ),
+                          Text(widget.orderData['timeSlot']),
+                          const SizedBox(
+                            height: 12,
+                          ),
+                          // Items Requested for Pickup
+                          const Text(
+                            'Items:',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          const SizedBox(
+                            height: 4,
+                          ),
+                          Center(
+                            child: Text(widget.orderData['order']
+                                .map((e) => e.toString())
+                                .toList()
+                                .join(', ')),
+                          ),
+                          const SizedBox(
+                            height: 12,
+                          ),
+                          const Text('Status: ',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          const SizedBox(
+                            height: 4,
+                          ),
+                          Text(widget.orderData['status']),
+                          const SizedBox(
+                            height: 16,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 );
