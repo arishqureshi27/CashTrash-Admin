@@ -13,11 +13,9 @@ class RejectionReason extends StatefulWidget {
 
 class _TimeSlotWidgetState extends State<RejectionReason> {
   final List<String> timeSlot = [
-    'Invalid Pincode',
-    'Invalid Address',
-    'Invalid Phone',
-    'The quantity of waste is below minimum weight',
+    //'The quantity of waste is below minimum weight',
     'Time Slot not available',
+    'Selected date not available'
     'Services are currently unavailable, will be resumed shortly'
   ];
 
