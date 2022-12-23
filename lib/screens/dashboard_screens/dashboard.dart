@@ -1,4 +1,3 @@
-import 'package:firebase_auth101/screens/dashboard_screens/ongoing_request_page.dart';
 import 'package:flutter/material.dart';
 import './history.dart';
 import 'pincode_add.dart';
@@ -17,14 +16,12 @@ class _DashboardState extends State<Dashboard> {
 
   List<Widget> dashboardScreens = [
     const RequestPage(),
-    
     const AddPincode(),
     const RequestHistory(),
   ];
 
   List<String> titles = [
     'Pickup Requests',
-    
     'Add Locations',
     'History',
   ];
@@ -46,11 +43,9 @@ class _DashboardState extends State<Dashboard> {
         backgroundColor: const Color(0xFF09B1EC),
         currentIndex: _currentIndex,
         onTap: (index) {
-
           setState(() {
             _currentIndex = index;
           });
-          
         },
         items: const [
           BottomNavigationBarItem(
@@ -59,14 +54,12 @@ class _DashboardState extends State<Dashboard> {
             label: 'Requests Req',
             backgroundColor: Color(0xFF09B1EC),
           ),
-          
           BottomNavigationBarItem(
             icon: Icon(Icons.location_on),
             tooltip: 'Pincodes',
             label: 'Pincodes',
             backgroundColor: Color(0xFF09B1EC),
           ),
-
           BottomNavigationBarItem(
             icon: Icon(Icons.history),
             tooltip: 'History',
