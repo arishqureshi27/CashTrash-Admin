@@ -17,14 +17,14 @@ class _DashboardState extends State<Dashboard> {
 
   List<Widget> dashboardScreens = [
     const RequestPage(),
-    const OngoingReqPage(),
+    
     const AddPincode(),
     const RequestHistory(),
   ];
 
   List<String> titles = [
     'Pickup Requests',
-    'Ongoing Requests',
+    
     'Add Locations',
     'History',
   ];
@@ -46,9 +46,11 @@ class _DashboardState extends State<Dashboard> {
         backgroundColor: const Color(0xFF09B1EC),
         currentIndex: _currentIndex,
         onTap: (index) {
+
           setState(() {
             _currentIndex = index;
           });
+          
         },
         items: const [
           BottomNavigationBarItem(
@@ -57,18 +59,14 @@ class _DashboardState extends State<Dashboard> {
             label: 'Requests Req',
             backgroundColor: Color(0xFF09B1EC),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.refresh_outlined),
-            tooltip: 'Ongoing Req',
-            label: 'Ongoing Req',
-            backgroundColor: Color(0xFF09B1EC),
-          ),
+          
           BottomNavigationBarItem(
             icon: Icon(Icons.location_on),
             tooltip: 'Pincodes',
             label: 'Pincodes',
             backgroundColor: Color(0xFF09B1EC),
           ),
+
           BottomNavigationBarItem(
             icon: Icon(Icons.history),
             tooltip: 'History',

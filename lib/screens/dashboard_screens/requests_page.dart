@@ -28,7 +28,7 @@ class _RequestPageState extends State<RequestPage> {
             itemBuilder: (context, index) {
               DocumentSnapshot orderData = snapshot.data!.docs[index];
               void onPressed() {
-                Map<String, String> dat = {'status': 'ongoing'};
+                Map<String, String> dat = {'status': 'accepted'};
                 setState(() {});
                 FirebaseFirestore.instance
                     .collection('order')
